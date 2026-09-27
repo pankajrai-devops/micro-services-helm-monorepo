@@ -1,0 +1,5 @@
+global: { namespace: webapp-production }
+postgres:
+  replicas: 2
+  image: { repository: ghcr.io/your-org/pankaj-db, tag: db-v1.4.2-release }
+  storage: { size: 20Gi }

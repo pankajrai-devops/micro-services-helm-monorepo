@@ -1,0 +1,12 @@
+global:
+  namespace: default
+tomcat:
+  replicas: 1
+  image:
+    repository: ghcr.io/pankajrai-devops/pankaj-webapp
+    tag: latest
+    pullPolicy: IfNotPresent
+  databaseHost: "postgres-write-primary"
+  service:
+    type: ClusterIP
+    nodePort: null

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: postgres-db-service
+description: Isolated microservice chart for Postgres backends
+type: application
+version: 1.0.0
+appVersion: "16.0"

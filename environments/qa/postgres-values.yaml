@@ -1,0 +1,2 @@
+global: { namespace: webapp-qa }
+postgres: { replicas: 2, image: { tag: qa-stable }, storage: { size: 5Gi } }

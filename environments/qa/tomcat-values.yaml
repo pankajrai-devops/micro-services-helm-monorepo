@@ -1,0 +1,6 @@
+global: { namespace: webapp-qa }
+tomcat:
+  replicas: 2
+  image: { tag: qa-stable }
+  databaseHost: "postgres-write-primary"
+  service: { type: NodePort, nodePort: 30080 }

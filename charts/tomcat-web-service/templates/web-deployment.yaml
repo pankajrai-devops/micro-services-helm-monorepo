@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-deployment
+  namespace: {{ .Values.global.namespace }}
+spec:
+  replicas: {{ .Values.tomcat.replicas }}
+  selector:
+    matchLabels:
+      app: tomcat-app
+  template:
+    metadata:
+      labels:
+        app: tomcat-app
+    spec:
+      initContainers:
+        - name: wait-for-postgres-ready
+          image: busybox:1.36
+          command: ['sh', '-c', 'until nc -z -w 2 {{ .Values.tomcat.databaseHost }} 5432; do echo "Waiting for database ready..."; sleep 2; done;']
+      containers:
+        - name: tomcat-server
+          image: "{{ .Values.tomcat.image.repository }}:{{ .Values.tomcat.image.tag }}"
+          imagePullPolicy: {{ .Values.tomcat.image.pullPolicy }}
+          ports:
+            - containerPort: 8080

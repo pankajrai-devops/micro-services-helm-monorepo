@@ -1,0 +1,8 @@
+global: 
+  namespace: webapp-dev
+postgres:
+  replicas: 1
+  image: 
+    tag: dev-latest
+  storage: 
+    size: 1Gi

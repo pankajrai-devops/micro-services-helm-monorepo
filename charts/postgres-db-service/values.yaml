@@ -1,0 +1,14 @@
+global:
+  namespace: default
+postgres:
+  replicas: 1
+  image:
+    repository: ghcr.io/pankajrai-devops/pankaj-db
+    tag: latest
+    pullPolicy: IfNotPresent
+  storage:
+    size: 1Gi
+  credentials:
+    dbName: "app_db"
+    user: "app_user"
+    password: "secure_password"

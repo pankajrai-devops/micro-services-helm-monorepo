@@ -1,0 +1,6 @@
+global: { namespace: webapp-production }
+tomcat:
+  replicas: 3
+  image: { repository: ghcr.io/your-org/pankaj-webapp, tag: web-v1.4.2-release }
+  databaseHost: "postgres-write-primary"
+  service: { type: ClusterIP }

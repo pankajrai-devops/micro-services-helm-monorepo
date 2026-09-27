@@ -1,0 +1,6 @@
+global: { namespace: webapp-dev }
+tomcat:
+  replicas: 1
+  image: { tag: dev-latest }
+  databaseHost: "postgres-write-primary"
+  service: { type: NodePort, nodePort: 30080 }
